@@ -38,3 +38,6 @@ update:
 	@./update.sh
 
 norme: norm
+
+norman: norm
+	make -C libft/ norm
