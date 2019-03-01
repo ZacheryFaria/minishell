@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/01 13:42:58 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/01 14:15:28 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ void repl()
 
 void test(int sig)
 {
-	ft_printf("%d", sig);
+	if (sig == SIGINT)
+	{
+		ft_putstr("\n");
+		prompt();
+	}
 }
 
 int	main()
