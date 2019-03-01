@@ -6,7 +6,7 @@
 /*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:14:25 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/01 13:17:41 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/01 13:25:29 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 char	**tokenize(char *buf)
 {
-	char **done = malloc(99);
+	char **done;
 	
-	done[0] = "hello";
-	done[1] = "world";
-	ft_putendl(buf);
-	return (done);
+	done = ft_strsplit(buf, ' ');
+	return (buf);
 }
