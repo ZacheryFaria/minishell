@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/01 13:16:44 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/01 13:42:58 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
+#include <stdlib.h>
+#include <libft.h>
 
 void repl()
 {
@@ -18,14 +20,24 @@ void repl()
 	char **tokens;
 	char *err;
 
-	buf = read_line();
-	tokens = tokenize(buf);
-	err = eval(tokens);
-	error(err);
+	while (1)
+	{
+		buf = read_line();
+		tokens = tokenize(buf);
+		err = eval(tokens);
+		error(err);
+		cleanup(buf, tokens);
+	}
+}
+
+void test(int sig)
+{
+	ft_printf("%d", sig);
 }
 
 int	main()
 {
+	signal(SIGINT, test);
 	repl();
 	return (0);
 }

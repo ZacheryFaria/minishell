@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/01 13:11:55 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/01 13:37:37 by zfaria           ###   ########.fr       */
+/*   Created: 2019/03/01 13:33:11 by zfaria            #+#    #+#             */
+/*   Updated: 2019/03/01 13:34:23 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <stdlib.h>
 
-void	error(char *error)
+void	cleanup(char *buf, char **tokens)
 {
-	if (*error)
-		ft_putendl(error);
+	free(buf);
+	free_tab(tokens);
 }

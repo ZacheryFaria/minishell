@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eval.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:12:47 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/01 13:14:23 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/01 13:30:26 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*eval(char **tokens)
 {
-++tokens;
-	ft_putendl("eval ran");
-	return ("error");
+	ft_printf("%s : %s", tokens[0], tokens[1]);
+	return ("cguuchi");
 }

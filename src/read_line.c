@@ -3,17 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   read_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:13:30 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/01 13:14:12 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/01 13:29:40 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <minishell.h>
 
 char	*read_line()
 {
-	ft_putendl("read_line ran");
-	return ("line");
+	char *done;
+
+	prompt();
+	get_next_line(0, &done, 512);
+	return (done);
 }
