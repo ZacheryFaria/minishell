@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tokenize.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/01 13:16:44 by awindham         ###   ########.fr       */
+/*   Created: 2019/03/01 13:14:25 by awindham          #+#    #+#             */
+/*   Updated: 2019/03/01 13:17:41 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minishell.h>
+#include <stdlib.h>
+#include <libft.h>
 
-void repl()
+char	**tokenize(char *buf)
 {
-	char *buf;
-	char **tokens;
-	char *err;
-
-	buf = read_line();
-	tokens = tokenize(buf);
-	err = eval(tokens);
-	error(err);
-}
-
-int	main()
-{
-	repl();
-	return (0);
+	char **done = malloc(99);
+	
+	done[0] = "hello";
+	done[1] = "world";
+	ft_putendl(buf);
+	return (done);
 }

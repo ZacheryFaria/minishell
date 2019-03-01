@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Werror -Wextra -Wall -g -I libft/ -I includes -ofast -ggdb3 -funroll-loops
+CFLAGS=-Werror -Wextra -Wall -g -Ilibft/ -I. -ofast -ggdb3 -funroll-loops
 LIBFLAGS=-L libft/ -lft
 NAME=minishell
 SRC=$(wildcard src/*)
