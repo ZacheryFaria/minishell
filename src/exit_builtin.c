@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 13:25:04 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/04 13:35:10 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/04 15:42:32 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 
 extern char **environ;
 
-int		exit_builtin(char **tokens)
+int			exit_builtin(char **tokens)
 {
 	int status;
 
 	if (fork() == 0)
 	{
 		execve("/nfs/2018/z/zfaria/.brew/bin/fortune", tokens, environ);
+		exit(0);
 	}
 	else
 	{
