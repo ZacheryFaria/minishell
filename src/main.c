@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/04 10:19:18 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/04 10:51:22 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void repl()
 		tokens = tokenize(buf);
 		err = eval(tokens);
 		error(err);
-		cleanup(buf, tokens);
+		cleanup(buf, tokens, err);
 	}
 }
 
