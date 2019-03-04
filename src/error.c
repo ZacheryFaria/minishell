@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:11:55 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/01 13:37:37 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/04 09:29:22 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	error(char *error)
 {
-	if (*error)
+	if (error)
 		ft_putendl(error);
 }
