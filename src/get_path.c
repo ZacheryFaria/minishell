@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   get_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/01 13:08:30 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/04 10:17:07 by zfaria           ###   ########.fr       */
+/*   Created: 2019/03/04 09:59:17 by zfaria            #+#    #+#             */
+/*   Updated: 2019/03/04 10:05:10 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include <libft.h>
 
-char	**g_path;
+extern char **environ;
 
-char	*read_line();
-char	**tokenize(char *buf);
-char	*eval(char **tokens);
-void	cleanup(char *buf, char **tokens);
-void	error(char *error);
-void	prompt();
-char	**get_path();
+char **get_path()
+{
+	int i;
 
-#endif
+	i = 0;
+	while (environ[i])
+	{
+		if (ft_strstr(environ[i], "PATH") && !ft_strstr(environ[i], "MANPATH"))
+			return (ft_strsplit(environ[i], ':'));
+		i++;
+	}
+	return (0);
+}
