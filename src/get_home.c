@@ -6,23 +6,23 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 15:19:15 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/04 15:22:24 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/04 17:05:58 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-extern char **environ;
+char		**g_env;
 
 char		*get_home(void)
 {
 	int i;
 
 	i = 0;
-	while (environ[i])
+	while (g_env[i])
 	{
-		if (ft_strstr(environ[i], "HOME"))
-			return (environ[i] + 5);
+		if (ft_strstr(g_env[i], "HOME"))
+			return (g_env[i] + 5);
 		i++;
 	}
 	return (0);

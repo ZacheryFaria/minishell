@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/04 16:45:19 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/04 17:06:25 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int		main(int argc, char **argv, char **env)
 {
 	(void)argc;
 	(void)argv;
+	g_env = arrdup(env);	
 	g_path = get_path();
 	g_home = get_home();
-	g_env = arrdup(env);
 	signal(SIGINT, test);
 	repl();
 	return (0);
