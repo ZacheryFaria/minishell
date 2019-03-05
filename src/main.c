@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/04 15:20:39 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/04 16:18:48 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ void repl(void)
 	while (1)
 	{
 		buf = read_line();
+		if (*buf == 0)
+		{
+			ft_strdel(&buf);
+			continue ;
+		}
 		tokens = tokenize(buf);
 		err = eval(tokens);
 		error(err);
