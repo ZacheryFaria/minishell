@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/04 16:18:48 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/04 16:45:19 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 char	**g_path = 0;
 char	*g_home = 0;
+char	**g_env;
 
 void repl(void)
 {
@@ -47,10 +48,13 @@ void test(int sig)
 	}
 }
 
-int		main(void)
+int		main(int argc, char **argv, char **env)
 {
+	(void)argc;
+	(void)argv;
 	g_path = get_path();
 	g_home = get_home();
+	g_env = arrdup(env);
 	signal(SIGINT, test);
 	repl();
 	return (0);
