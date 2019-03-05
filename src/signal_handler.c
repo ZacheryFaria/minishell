@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_path.c                                         :+:      :+:    :+:   */
+/*   signal_handler.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/04 09:59:17 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/05 12:00:05 by zfaria           ###   ########.fr       */
+/*   Created: 2019/03/05 13:19:17 by zfaria            #+#    #+#             */
+/*   Updated: 2019/03/05 13:25:16 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <minishell.h>
 #include <libft.h>
 
-char	**g_env;
-char	**g_path;
-
-void	set_path(void)
+void	proc_signal_handle(int sig)
 {
-	int i;
-
-	i = 0;
-	while (g_env[i])
+	if (sig == SIGINT)
 	{
-		if (ft_strstr(g_env[i], "PATH") && !ft_strstr(g_env[i], "MANPATH"))
-		{
-			g_path = ft_strsplit(g_env[i], ':');
-			return ;
-		}
-		i++;
+		ft_putstr("\n");
+		signal(SIGINT, signal_handle);
+	}
+}
+
+void	signal_handle(int sig)
+{
+	if (sig == SIGINT)
+	{
+		ft_putstr("\n");
+		prompt();
+		signal(SIGINT, signal_handle);
 	}
 }

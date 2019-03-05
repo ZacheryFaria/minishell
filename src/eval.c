@@ -6,13 +6,13 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:12:47 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/05 10:39:30 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/05 13:26:48 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <minishell.h>
 #include <libft.h>
@@ -22,7 +22,8 @@ extern char **g_path;
 
 t_builtin g_dispatch[] = {
 	{ "cd", &cd_builtin },
-	{ "exit", &exit_builtin }
+	{ "exit", &exit_builtin },
+	{ "setenv", &setenv_builtin }
 };
 
 int		check_builtin(char **str)
@@ -45,8 +46,11 @@ int		check_builtin(char **str)
 int		check_literal(char **tokens)
 {
 	int		status;
+	int		pid;
 
-	if (fork() == 0)
+	pid = fork();
+	signal(SIGINT, proc_signal_handle);
+	if (pid == 0)
 	{
 		execve(tokens[0], tokens, g_env);
 		exit(5);
@@ -64,8 +68,11 @@ int		check_path(char **tokens)
 	char	*func;
 	int		status;
 	int		i;
+	int		pid;
 
-	if (fork() == 0)
+	pid = fork();
+	signal(SIGINT, proc_signal_handle);
+	if (pid == 0)
 	{
 		i = 0;
 		while (g_path[i])

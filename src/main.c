@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/05 10:40:47 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/05 13:21:21 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,14 @@ void	repl(void)
 	}
 }
 
-void	test(int sig)
-{
-	if (sig == SIGINT)
-	{
-		ft_putstr("\n");
-		prompt();
-	}
-}
-
 int		main(int argc, char **argv, char **env)
 {
 	(void)argc;
 	(void)argv;
 	g_env = arrdup(env);
-	g_path = get_path();
-	g_home = get_home();
-	signal(SIGINT, test);
+	signal(SIGINT, signal_handle);
+	set_path();
+	set_home();
 	repl();
 	return (0);
 }
