@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:59:17 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/04 10:05:10 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/04 14:21:20 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern char **environ;
 
-char **get_path()
+char		**get_path(void)
 {
 	int i;
 

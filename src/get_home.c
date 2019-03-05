@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cleanup.c                                          :+:      :+:    :+:   */
+/*   get_home.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/01 13:33:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/04 15:52:12 by zfaria           ###   ########.fr       */
+/*   Created: 2019/03/04 15:19:15 by zfaria            #+#    #+#             */
+/*   Updated: 2019/03/04 15:22:24 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdlib.h>
 
-void	cleanup(char *buf, char **tokens, char *err)
+extern char **environ;
+
+char		*get_home(void)
 {
-	free(buf);
-	free_tab(tokens);
-	free(err);
+	int i;
+
+	i = 0;
+	while (environ[i])
+	{
+		if (ft_strstr(environ[i], "HOME"))
+			return (environ[i] + 5);
+		i++;
+	}
+	return (0);
 }

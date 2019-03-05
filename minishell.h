@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:08:30 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/04 13:27:27 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/04 15:21:41 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@ typedef struct	s_builtin
 }				t_builtin;
 
 char			**g_path;
-char			*read_line();
+char			*g_home;
+
+char			*read_line(void);
 char			**tokenize(char *buf);
 char			*eval(char **tokens);
 void			cleanup(char *buf, char **tokens, char *err);
 void			error(char *error);
-void			prompt();
-char			**get_path();
+void			prompt(void);
+char			**get_path(void);
+char			*get_home(void);
 void			cd(char *path);
 int				cd_builtin(char **token);
 int				exit_builtin(char **tokens);

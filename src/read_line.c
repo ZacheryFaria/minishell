@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:13:30 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/01 14:13:38 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/04 14:21:55 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <minishell.h>
 #include <stdlib.h>
 
-char	*read_line()
+char	*read_line(void)
 {
 	char *done;
 
