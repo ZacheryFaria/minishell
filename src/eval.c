@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:12:47 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/04 16:18:05 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/05 10:39:30 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,24 @@
 #include <minishell.h>
 #include <libft.h>
 
-extern char **environ;
+extern char **g_env;
 extern char **g_path;
 
-t_builtin tab[] = {
+t_builtin g_dispatch[] = {
 	{ "cd", &cd_builtin },
 	{ "exit", &exit_builtin }
 };
-
 
 int		check_builtin(char **str)
 {
 	int i;
 
 	i = 0;
-	while (tab[i].cmd)
+	while (g_dispatch[i].cmd)
 	{
-		if (ft_strcmp(str[0], tab[i].cmd) == 0)
+		if (ft_strcmp(str[0], g_dispatch[i].cmd) == 0)
 		{
-			tab[i].cmdf(str);
+			g_dispatch[i].cmdf(str);
 			return (1);
 		}
 		i++;
@@ -49,7 +48,7 @@ int		check_literal(char **tokens)
 
 	if (fork() == 0)
 	{
-		execve(tokens[0] , tokens, environ);
+		execve(tokens[0], tokens, g_env);
 		exit(5);
 		return (0);
 	}
@@ -75,7 +74,7 @@ int		check_path(char **tokens)
 			func = ft_strcat(func, g_path[i]);
 			func = ft_strcat(func, "/");
 			func = ft_strcat(func, tokens[0]);
-			execve(func, tokens, environ);
+			execve(func, tokens, g_env);
 			i++;
 		}
 		exit(5);
@@ -91,7 +90,7 @@ int		check_path(char **tokens)
 char	*eval(char **tokens)
 {
 	if (!check_builtin(tokens) && check_literal(tokens) == 1280
-		&&check_path(tokens) == 1280)
+		&& check_path(tokens) == 1280)
 	{
 		ft_printf("%s: %s\n", tokens[0], "Command not found.");
 	}

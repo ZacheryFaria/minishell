@@ -6,15 +6,16 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 13:25:04 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/04 15:42:32 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/05 10:40:15 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <minishell.h>
 
-extern char **environ;
+extern char **g_env;
 
 int			exit_builtin(char **tokens)
 {
