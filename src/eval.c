@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eval.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/01 13:12:47 by awindham          #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2019/03/06 11:44:48 by zfaria           ###   ########.fr       */
-=======
-/*   Updated: 2019/03/06 12:12:36 by awindham         ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Created: 2019/03/06 13:49:27 by zfaria            #+#    #+#             */
+/*   Updated: 2019/03/06 13:49:28 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
