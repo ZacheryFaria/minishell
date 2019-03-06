@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setenv_builtin.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 10:51:34 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 13:47:52 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 14:09:34 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ int		setenv_builtin(char **tokens)
 		print_env();
 		return (0);
 	}
-	g_env = realloc_env();
+	//else if (tokens[2])
+		//g_env = realloc_env();
 	setenv_b(tokens);
 	set_path();
 	set_home();
