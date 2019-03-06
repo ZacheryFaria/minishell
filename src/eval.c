@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   eval.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:12:47 by awindham          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2019/03/06 11:44:48 by zfaria           ###   ########.fr       */
+=======
+/*   Updated: 2019/03/06 12:12:36 by awindham         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +82,7 @@ int		check_path(char **tokens)
 		while (g_path[i])
 		{
 			func = ft_strnew(ft_strlen(g_path[i]) + ft_strlen(tokens[0]) + 2);
-			func = ft_strcat(func, g_path[i]);
-			func = ft_strcat(func, "/");
-			func = ft_strcat(func, tokens[0]);
+			func = ft_strvcat(func, g_path[i], "/", tokens[0], 0);
 			execve(func, tokens, g_env);
 			free(func);
 			i++;
