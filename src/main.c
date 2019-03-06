@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 14:13:14 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:37:48 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,29 @@ char	**g_path = 0;
 char	*g_home = 0;
 char	**g_env;
 
+void	run_commands(char **commands)
+{
+	char	**tokens;
+	char	*err;
+	int		i;
+
+	i = 0;
+	while (commands[i])
+	{
+		tokens = tokenize(commands[i]);
+		err = eval(tokens);
+		error(err);
+		free_tab(tokens);
+		ft_strdel(&err);
+		i++;
+	}
+	free_tab(commands);
+}
+
 void	repl(void)
 {
 	char *buf;
-	char **tokens;
-	char *err;
+	char **commands;
 
 	while (1)
 	{
@@ -32,10 +50,9 @@ void	repl(void)
 			ft_strdel(&buf);
 			continue ;
 		}
-		tokens = tokenize(buf);
-		err = eval(tokens);
-		error(err);
-		cleanup(buf, tokens, err);
+		commands = ft_strsplit(buf, ';');
+		run_commands(commands);
+		ft_strdel(&buf);
 	}
 }
 
