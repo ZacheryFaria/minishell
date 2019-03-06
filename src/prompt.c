@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:22:30 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/05 11:11:48 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 13:59:49 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	prompt(void)
 
 	buf = ft_strnew(4096);
 	getcwd(buf, 4096);
-	if (ft_strstr(buf, g_home))
+	if (ft_strncmp(buf, g_home, ft_strlen(g_home)) == 0)
 		buf[ft_strlen(g_home) - 1] = '~';
 	if (buf[ft_strlen(g_home) - 1] == '~')
 		ft_printf("%s %c ", buf + ft_strlen(g_home) - 1, '$');
