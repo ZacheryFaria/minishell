@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:49:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 19:01:14 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/07 12:21:48 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	cd(char *path)
 		ft_printf("%s: %s: %s\n", "cd", path, "permission denied");
 	else
 		status = chdir(path);
+	free(cwd);
 }
 
 int		builtin_cd(char **token)
