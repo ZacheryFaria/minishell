@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_setenv.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:58:15 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/07 12:24:32 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/07 14:11:10 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,29 @@ void	env_append(char **tokens)
 	g_env[g_env_len - 1] = str;
 }
 
+void	env_set(char **tokens)
+{
+	int	key;
+	char *str;
+
+	key = get_key(tokens[1]);
+	free(g_env[key]);
+	str = ft_strnew(ft_strlen(tokens[1]) + ft_strlen(tokens[2]) + 1);
+	str = ft_strvcat(str, tokens[1], "=", tokens[2], 0);
+	g_env[key] = str;
+}
+
 int		builtin_setenv(char **tokens)
 {
 	if (tokens[1] == 0)
 		print_env();
 	else
-		env_append(tokens);
+	{
+		if (get_key(tokens[1]) != -1)
+			env_set(tokens);
+		else
+			env_append(tokens);
+	}
 	if (g_path)
 		free_tab(g_path);
 	g_path = 0;
