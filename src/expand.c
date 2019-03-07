@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:26:18 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 17:37:20 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 18:04:22 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*get_env(char *key)
 	while (g_env[++i])
 		if (ft_strncmp(g_env[i], key, len) == 0)
 			return (g_env[i] + len + 1);
-	return ("");
+	return (0);
 }
 
 char	*expand_var_str(char *token)
@@ -39,6 +39,8 @@ char	*expand_var_str(char *token)
 	{
 		if (token[i] == '$')
 		{
+			if (get_env(token + i + 1) == 0)
+				return (0);
 			str = ft_strnew(ft_strlen(get_env(token + i + 1)) + i);
 			str = ft_strncat(str, token, i);
 			str = ft_strcat(str, get_env(token + i + 1));

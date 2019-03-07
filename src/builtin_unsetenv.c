@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_unsetenv.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:24:08 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 17:47:52 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 18:10:11 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ int		builtin_unsetenv(char **tokens)
 	if (tokens[1] == 0)
 		return (0);
 	env_del(get_key(tokens[1]));
+	free_tab(g_path);
+	set_home();
+	set_path();
 	return (0);
 }

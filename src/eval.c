@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eval.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:22:31 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 17:58:52 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 18:13:00 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,22 @@ int		check_path(char **tokens)
 	}
 	else
 	{
-		wait(&status);
+		wait(&status);		
 		return (status);
 	}
 }
 
 char	*eval(char **tokens)
 {
-	if (!check_builtin(tokens) && check_literal(tokens) == 1280
-		&& check_path(tokens) == 1280)
+	int status_builtin;
+	int status_literal;
+	int status_path;
+
+	status_builtin = check_builtin(tokens);
+	status_literal = check_literal(tokens);
+	status_path = check_path(tokens);
+	if (!status_builtin && status_literal == 1280 && (status_path == 11 ||
+		status_path == 1280))
 	{
 		ft_printf("%s: %s\n", tokens[0], "Command not found.");
 	}
