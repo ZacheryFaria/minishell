@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 18:36:46 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/07 12:45:28 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,15 @@ void	run_commands(char **commands)
 	{
 		tokens = tokenize(commands[i]);
 		expand_var(tokens);
-		err = eval(tokens);
-		error(err);
-		free_tab(tokens);
-		ft_strdel(&err);
+		if (tokens[0])
+		{
+			err = eval(tokens);
+			error(err);
+			free_tab(tokens);
+			ft_strdel(&err);
+		}
+		else
+			free(tokens);
 		i++;
 	}
 	free_tab(commands);
