@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:22:30 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 13:59:49 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 18:24:37 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ void	prompt(void)
 		ft_printf("%s %c ", buf + ft_strlen(g_home) - 1, '$');
 	else
 		ft_printf("%s %c ", buf, '$');
-		
 	ft_strdel(&buf);
 }

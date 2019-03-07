@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_setenv.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:58:15 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 17:53:44 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 18:24:44 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	**arrayplusplus(char **a)
 
 	done = malloc((g_env_len + 2) * sizeof(char *));
 	i = 0;
-	while(a[i])
+	while (a[i])
 	{
 		done[i] = ft_strdup(a[i]);
 		free(a[i]);

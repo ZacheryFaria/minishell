@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:22:31 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 18:23:34 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 18:27:47 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,20 @@ int		check_path(char **tokens)
 	signal(SIGINT, proc_signal_handle);
 	if (pid == 0)
 	{
-		i = 0;
-		while (g_path[i])
+		i = -1;
+		while (g_path[++i])
 		{
 			func = ft_strnew(ft_strlen(g_path[i]) + ft_strlen(tokens[0]) + 2);
 			func = ft_strvcat(func, g_path[i], "/", tokens[0], 0);
 			execve(func, tokens, g_env);
 			free(func);
-			i++;
 		}
 		exit(5);
 		return (0);
 	}
 	else
 	{
-		wait(&status);		
+		wait(&status);
 		return (status);
 	}
 }

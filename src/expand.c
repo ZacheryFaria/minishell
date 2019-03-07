@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:26:18 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 18:04:22 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 18:24:51 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*expand_var_str(char *token)
 	char	*str;
 
 	i = -1;
-	while(token[++i])
+	while (token[++i])
 	{
 		if (token[i] == '$')
 		{

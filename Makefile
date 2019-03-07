@@ -6,7 +6,7 @@ SRC=$(wildcard src/*)
 OBJ=$(SRC:src/%.c=%.o)
 SHELL := /bin/bash
 
-.PHONY: clean fclean all re norm norme debug test
+.PHONY: clean fclean all re norm norme debug test norman
 
 VPATH = src obj libft/includes include
 
@@ -39,5 +39,5 @@ update:
 
 norme: norm
 
-norman: norm
-	make -C libft/ norm
+norman:
+	-norminette * | grep -iv warning
