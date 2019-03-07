@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit_builtin.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 13:25:04 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/05 10:41:18 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 16:33:39 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 extern char **g_env;
 
-int			exit_builtin(char **tokens)
+int			builtin_exit(char **tokens)
 {
 	int status;
 

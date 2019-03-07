@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   builtin_cd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:49:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/05 10:39:52 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 16:34:59 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	cd(char *path)
 		ft_printf("%s: %s: %s\n", "cd", path, "No such directory.");
 }
 
-int		cd_builtin(char **token)
+int		builtin_cd(char **token)
 {
 	cd(token[1]);
 	return (0);

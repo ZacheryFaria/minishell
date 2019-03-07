@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eval.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/06 13:49:27 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 17:14:46 by zfaria           ###   ########.fr       */
+/*   Created: 2019/03/06 17:22:31 by awindham          #+#    #+#             */
+/*   Updated: 2019/03/06 17:22:41 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <minishell.h>
-#include <libft.h>
 
 extern char **g_env;
 extern char **g_path;
 
 t_builtin g_dispatch[] = {
-	{ "cd", &cd_builtin },
-	{ "exit", &exit_builtin },
+	{ "cd", &builtin_cd },
+	{ "exit", &builtin_exit },
 	{ "setenv", &builtin_setenv }
 };
 
