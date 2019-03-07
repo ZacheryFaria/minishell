@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_builtin.c                                     :+:      :+:    :+:   */
+/*   builtin_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 13:25:04 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 16:33:39 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/07 12:35:35 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,13 @@ extern char **g_env;
 
 int			builtin_exit(char **tokens)
 {
-	int status;
+	int		status;
+	char	*arr[1];
 
-	if (fork() == 0)
-	{
-		execve("/nfs/2018/z/zfaria/.brew/bin/fortune", tokens, g_env);
-		exit(0);
-	}
-	else
-	{
-		wait(&status);
-		ft_putendl("goodbye");
-		exit(1337);
-	}
+	(void)tokens;
+	arr[0] = ft_strdup("fortune");
+	status = check_path(arr);
+	ft_putendl("goodbye");
+	exit(1);
 	return (0);
 }
