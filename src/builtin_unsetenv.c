@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:24:08 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 18:29:09 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/07 12:24:39 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int		builtin_unsetenv(char **tokens)
 	if (tokens[1] == 0)
 		return (0);
 	env_del(get_key(tokens[1]));
-	free_tab(g_path);
+	if (g_path)
+		free_tab(g_path);
+	g_path = 0;
 	set_home();
 	set_path();
 	return (0);
