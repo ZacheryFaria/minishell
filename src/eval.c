@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:22:31 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 18:27:47 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 19:00:04 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,12 @@ char	*eval(char **tokens)
 
 	if ((status_builtin = check_builtin(tokens)) == 0)
 		if ((status_literal = check_literal(tokens)) == 1280)
-			if ((status_path = check_path(tokens)) == 1280 || status_path == 11)
-				ft_printf("%s: %s\n", tokens[0], "Command not found.");
+		{
+			if (access(tokens[0], F_OK) == 0 && access(tokens[0], X_OK) == -1)
+				ft_printf("%s: %s\n", tokens[0], "permission denied");
+			else if ((status_path = check_path(tokens)) == 1280
+				|| status_path == 11)
+				ft_printf("%s: %s\n", tokens[0], "command not found");
+		}
 	return (0);
 }
