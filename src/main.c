@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 16:03:21 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:06:54 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	run_commands(char **commands)
 	while (commands[i])
 	{
 		tokens = tokenize(commands[i]);
+		expand_var(tokens);
 		err = eval(tokens);
 		error(err);
 		free_tab(tokens);

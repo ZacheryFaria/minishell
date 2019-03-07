@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:08:30 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 15:05:42 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:07:06 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void			set_home(void);
 void			cd(char *path);
 void			signal_handle(int sig);
 void			proc_signal_handle(int sig);
+void			expand_var(char **tokens);
 
 int				cd_builtin(char **token);
 int				exit_builtin(char **tokens);
