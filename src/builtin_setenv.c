@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_setenv.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:58:15 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 16:09:48 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 16:13:36 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	**arrayplusplus(char **a)
 	done[i] = 0;
 	done[i + 1] = 0;
 	g_env_len += 1;
+	free(g_env);
 	return (done);
 }
 
