@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 09:08:11 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 15:37:48 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 16:03:21 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 char	**g_path = 0;
 char	*g_home = 0;
 char	**g_env;
+int		g_env_len;
 
 void	run_commands(char **commands)
 {
@@ -60,7 +61,8 @@ int		main(int argc, char **argv, char **env)
 {
 	(void)argc;
 	(void)argv;
-	g_env = env;
+	g_env = arrdup(env);
+	g_env_len = array_len(env);
 	signal(SIGINT, signal_handle);
 	set_path();
 	set_home();

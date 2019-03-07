@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eval.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 13:49:27 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/06 13:49:28 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/06 15:05:27 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ extern char **g_path;
 t_builtin g_dispatch[] = {
 	{ "cd", &cd_builtin },
 	{ "exit", &exit_builtin },
-	{ "setenv", &setenv_builtin }
+	{ "setenv", &builtin_setenv }
 };
 
 int		check_builtin(char **str)

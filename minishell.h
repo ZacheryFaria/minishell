@@ -6,7 +6,7 @@
 /*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:08:30 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 12:12:25 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:05:42 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void			proc_signal_handle(int sig);
 
 int				cd_builtin(char **token);
 int				exit_builtin(char **tokens);
-int				setenv_builtin(char **tokens);
+int				builtin_setenv(char **tokens);
 
 #endif
