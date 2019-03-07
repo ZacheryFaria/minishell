@@ -6,7 +6,7 @@
 /*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:21:44 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 17:21:45 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:53:36 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,13 @@ void			set_home(void);
 void			cd(char *path);
 void			signal_handle(int sig);
 void			proc_signal_handle(int sig);
+void			print_env(void);
 void			expand_var(char **tokens);
 
 int				builtin_cd(char **token);
 int				builtin_exit(char **tokens);
 int				builtin_setenv(char **tokens);
+int				builtin_unsetenv(char **tokens);
+int				builtin_env(char **tokens);
 
 #endif

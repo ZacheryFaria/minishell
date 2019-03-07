@@ -6,7 +6,7 @@
 /*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:58:15 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 16:13:36 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:53:44 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,6 @@
 
 char	**g_env;
 int		g_env_len;
-
-void	print_env()
-{
-	int i;
-
-	i = 0;
-	while (g_env[i])
-		ft_printf("%s\n", g_env[i++]);
-}
 
 char	**arrayplusplus(char **a)
 {
