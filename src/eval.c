@@ -6,7 +6,7 @@
 /*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:22:31 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 17:22:41 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:53:46 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ extern char **g_path;
 t_builtin g_dispatch[] = {
 	{ "cd", &builtin_cd },
 	{ "exit", &builtin_exit },
-	{ "setenv", &builtin_setenv }
+	{ "setenv", &builtin_setenv },
+	{ "unsetenv", &builtin_unsetenv },
+	{ "env", &builtin_env }
 };
 
 int		check_builtin(char **str)
