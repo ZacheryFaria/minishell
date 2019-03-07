@@ -6,7 +6,7 @@
 /*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:21:44 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 17:53:36 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:58:29 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int				builtin_exit(char **tokens);
 int				builtin_setenv(char **tokens);
 int				builtin_unsetenv(char **tokens);
 int				builtin_env(char **tokens);
+int				builtin_echo(char **tokens);
 
 #endif
