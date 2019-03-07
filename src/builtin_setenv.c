@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_setenv.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:58:15 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/06 16:03:27 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/06 16:09:48 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,12 @@ char	**arrayplusplus(char **a)
 
 void	env_append(char **tokens)
 {
+	char *str;
+
 	g_env = arrayplusplus(g_env);
-	g_env[g_env_len - 1] = ft_strdup(tokens[2]);
-tokens++;
+	str = ft_strnew(ft_strlen(tokens[1]) + ft_strlen(tokens[2]) + 1);
+	str = ft_strvcat(str, tokens[1], "=", tokens[2], 0);
+	g_env[g_env_len - 1] = str;
 }
 
 int		builtin_setenv(char **tokens)
@@ -58,6 +61,7 @@ int		builtin_setenv(char **tokens)
 		print_env();
 	else
 		env_append(tokens);
+	free_tab(g_path);
 	set_home();
 	set_path();
 	return (1);
