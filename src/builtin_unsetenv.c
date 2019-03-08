@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_unsetenv.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:24:08 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/07 12:24:39 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/07 14:13:22 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	env_del(int d)
 {
 	if (d < 0)
 		return ;
+	free(g_env[d]);
 	while (d < g_env_len)
 	{
 		g_env[d] = g_env[d + 1];
