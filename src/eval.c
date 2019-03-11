@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eval.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:22:31 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/07 14:42:12 by awindham         ###   ########.fr       */
+/*   Updated: 2019/03/11 11:09:03 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ t_builtin g_dispatch[] = {
 	{ "setenv", &builtin_setenv },
 	{ "unsetenv", &builtin_unsetenv },
 	{ "env", &builtin_env },
-	{ "echo", &builtin_echo }
+	{ "echo", &builtin_echo },
+	{ 0, 0 }
 };
 
 int		check_builtin(char **str)
