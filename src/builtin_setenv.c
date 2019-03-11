@@ -6,7 +6,7 @@
 /*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:58:15 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/11 14:54:12 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/11 14:58:02 by zfaria           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	env_append(char **tokens)
 void	env_set(char **tokens)
 {
 	int		key;
-	char 	*str;
+	char	*str;
 
 	key = get_key(tokens[1]);
 	free(g_env[key]);
