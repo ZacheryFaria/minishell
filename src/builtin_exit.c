@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 13:25:04 by zfaria            #+#    #+#             */
-/*   Updated: 2019/03/07 12:35:35 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/15 10:14:55 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			builtin_exit(char **tokens)
 
 	(void)tokens;
 	arr[0] = ft_strdup("fortune");
-	status = check_path(arr);
+	status = check_path(arr, -1);
 	ft_putendl("goodbye");
 	exit(1);
 	return (0);

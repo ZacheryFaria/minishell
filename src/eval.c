@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eval.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zfaria <zfaria@student.42.fr>              +#+  +:+       +#+        */
+/*   By: awindham <awindham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 17:22:31 by awindham          #+#    #+#             */
-/*   Updated: 2019/03/11 14:58:28 by zfaria           ###   ########.fr       */
+/*   Updated: 2019/03/15 10:14:24 by awindham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,16 @@ int		check_literal(char **tokens)
 	}
 }
 
-int		check_path(char **tokens)
+int		check_path(char **tokens, int i)
 {
 	char	*func;
 	int		status;
-	int		i;
 	int		pid;
 
 	pid = fork();
 	signal(SIGINT, proc_signal_handle);
-	if (pid == 0)
+	if (pid == 0 && (i = -1))
 	{
-		i = -1;
 		while (g_path[++i])
 		{
 			func = ft_strnew(ft_strlen(g_path[i]) + ft_strlen(tokens[0]) + 2);
@@ -91,13 +89,10 @@ int		check_path(char **tokens)
 			free(func);
 		}
 		exit(5);
-		return (0);
 	}
 	else
-	{
 		wait(&status);
-		return (status);
-	}
+	return (status);
 }
 
 char	*eval(char **tokens)
@@ -111,7 +106,7 @@ char	*eval(char **tokens)
 		{
 			if (access(tokens[0], F_OK) == 0 && access(tokens[0], X_OK) == -1)
 				ft_printf("%s: %s\n", tokens[0], "permission denied");
-			else if (((status_path = check_path(tokens)) == 1280
+			else if (((status_path = check_path(tokens, -1)) == 1280
 				|| status_path == 11) && status_path >> 8 != 6)
 				ft_printf("%s: %s\n", tokens[0], "command not found");
 		}
